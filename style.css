@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* Navbar / Header */
+header, .navbar {
+    background-color: #27528b;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+nav a, .navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #1f4d8c;
+    color: white;
+    padding: 60px 40px;
+}
+.hero-logo {
+    width: 100px;
+    height: auto;
+}
+.hero-text {
+    max-width: 600px;
+}
+.hero h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+.hero h2 {
+    font-size: 20px;
+    font-weight: lighter;
+}
+.hero p {
+    margin: 20px 0;
+    line-height: 1.5;
+}
+.buttons button {
+    background-color: #1f4d8c;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.buttons button:hover {
+    background-color: white;
+    color: #1f4d8c;
+}
+
+/* Container (form dll) */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #27528b;
+    margin-bottom: 30px;
+}
+
+/* Form Biasa */
+.form-container {
+    max-width: 400px;
+    margin: 60px auto;
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+/* Style tombol kirim */
+.form-container button, .submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #27528b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;  /* biar huruf jadi kapital */
+  letter-spacing: 1px;        /* jarak antar huruf */
+}
+.form-container button:hover,
+.submit-btn:hover {
+  background-color: #163863; /* lebih gelap saat hover */
+  color: #fff;
+}
+
+/* Form Detail */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.form-row .form-group {
+    flex: 1;
+}
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #27528b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.submit-btn:hover {
+    background-color: #1f4d8c;
+}
+
+/* Contact Section */
+.contact-section {
+    background: #f4f4f4;
+    color: #000;
+    padding: 40px 80px;
+}
+
+/* Button Khusus */
+.btn-daftar {
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #1f4d8c;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+}
+.btn-daftar:hover {
+  background-color: #003366;
+  color: #fff;
+}
+
+/* User Icon di Navbar */
+.user-link {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.user-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;   /* bikin bulat */
+    vertical-align: middle;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;   /* biar bulat */
+    margin-left: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.user-link {
+    display: inline-block;
+}
+
+/* Dashboard styling */
+.dashboard-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;   /* tombol ke bawah */
+    align-items: center;      /* rata tengah */
+    gap: 20px;                /* jarak antar tombol */
+    margin-top: 30px;
+}
+
+.btn-dashboard {
+    background-color: #27528b;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    width: 250px;             /* bikin panjang tombol sama */
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.btn-dashboard:hover {
+    background-color: #1e3f6a;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+
+/* Saat layar kecil (tablet & HP) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #27528b;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    margin: 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .user-link {
+    margin-left: 0;
+    padding: 12px 0;
+  }
+
+  .user-icon {
+    width: 28px;
+    height: 28px;
+  }
+}

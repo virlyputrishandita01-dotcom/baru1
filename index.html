@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <img
+      src="{{url_for('static', filename='icon_pasda.png')}}"
+      alt="Logo Pengadilan Agama Sidoarjo"
+      class="hero-logo"
+    />
+    <h2>INTERNSHIP</h2>
+    <h1>
+      PENGADILAN <br />
+      AGAMA SIDOARJO
+    </h1>
+    <p>
+      Selamat Datang, <br />
+      di Portal Magang Pengadilan Agama Sidoarjo. <br />
+      Sistem ini dirancang untuk mempermudah pendaftaran, pemantauan, dan
+      pengelolaan kegiatan magang mahasiswa secara transparan dan efisien.
+    </p>
+    <div class="mt-4">
+      <a
+        href="{{ url_for('login') }}"
+        class="btn btn-primary btn-lg btn-daftar"
+      >
+        DAFTAR SEKARANG
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Section About Us -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>TENTANG KAMI</h1>
+    <p>
+      Portal Magang Pengadilan Agama Sidoarjo adalah platform resmi untuk
+      mempermudah mahasiswa dalam proses pendaftaran dan pengelolaan magang.
+      Melalui portal ini, seluruh tahapan magang dapat diakses secara cepat,
+      transparan, dan terintegrasi.
+    </p>
+    <p>
+      Sebagai lembaga peradilan di bawah Mahkamah Agung RI, Pengadilan Agama
+      Sidoarjo berkomitmen tidak hanya memberikan pelayanan hukum, tetapi juga
+      menjadi sarana pembelajaran praktis bagi generasi muda untuk memahami
+      dunia peradilan secara langsung.
+    </p>
+  </div>
+</section>
+
+<!-- Section Contact -->
+<section id="contact" class="contact-section">
+  <div class="hero-text">
+    <h1>KONTAK</h1>
+    <ul>
+      <li><strong>Email :</strong> sekretariat.pasidoarjo@gmail.com</li>
+      <li><strong>Telp :</strong> 031-8921012</li>
+      <li>
+        <strong>Alamat :</strong> Jl. Hasanuddin No.90, Plipir, Sekardangan,
+        Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61215
+      </li>
+    </ul>
+  </div>
+</section>
+
+{% endblock %}

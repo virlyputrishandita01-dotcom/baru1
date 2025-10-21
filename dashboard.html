@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-container">
+    <h2>Selamat Datang, {{ session['nama'] }}!</h2>
+    <p>Pilih menu di bawah ini:</p>
+
+    <div class="button-group">
+        <a href="{{ url_for('formulir') }}" class="btn-dashboard">Daftar Magang</a>
+        <a href="{{ url_for('profile') }}" class="btn-dashboard">Profile</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="form-container">
+    <h2>Daftar</h2>
+
+    <!-- Flash Message -->
+      {% if messages %}
+        <div class="flash-messages">
+        {% for category, message in messages %}
+          <div class="alert {{ category }}">{{ message }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+
+    <form method="POST" action="{{ url_for('register') }}">
+        <label>Nama:</label>
+        <input type="text" name="nama" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <!-- CAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+
+        <button type="submit">Daftar</button>
+    </form>
+
+    <p>Sudah punya akun? <a href="{{ url_for('login') }}">Login disini</a></p>
+</section>
+
+<!-- Script Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+{% endblock %}

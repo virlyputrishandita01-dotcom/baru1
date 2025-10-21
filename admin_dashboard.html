@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block content %}
+<div class="container my-4">
+  <h3 class="text-center">📊 Data Pendidikan Bulanan 2025</h3>
+  <p class="text-center text-muted">
+    Jumlah Universitas, Mahasiswa, Sekolah, dan Siswa
+  </p>
+
+  <canvas id="eduChart" height="100"></canvas>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+    <div
+      class="card text-center bg-gradient-to-r from-blue-500 to-indigo-500 text-white p-4 rounded-2xl shadow"
+    >
+      <h5>Total Universitas</h5>
+      <h2>{{ total_universitas }}</h2>
+    </div>
+    <div
+      class="card text-center bg-gradient-to-r from-green-500 to-teal-500 text-white p-4 rounded-2xl shadow"
+    >
+      <h5>Total Mahasiswa</h5>
+      <h2>{{ total_mahasiswa }}</h2>
+    </div>
+    <div
+      class="card text-center bg-gradient-to-r from-orange-400 to-pink-500 text-white p-4 rounded-2xl shadow"
+    >
+      <h5>Total Sekolah</h5>
+      <h2>{{ total_sekolah }}</h2>
+    </div>
+    <div
+      class="card text-center bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white p-4 rounded-2xl shadow"
+    >
+      <h5>Total Siswa</h5>
+      <h2>{{ total_siswa }}</h2>
+    </div>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('eduChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{ bulan_labels|tojson }},
+      datasets: [
+        {
+          label: 'Universitas',
+          data: {{ universitas_data|tojson }},
+          backgroundColor: '#3b82f6'
+        },
+        {
+          label: 'Mahasiswa',
+          data: {{ mahasiswa_data|tojson }},
+          backgroundColor: '#10b981'
+        },
+        {
+          label: 'Sekolah',
+          data: {{ sekolah_data|tojson }},
+          backgroundColor: '#f59e0b'
+        },
+        {
+          label: 'Siswa',
+          data: {{ siswa_data|tojson }},
+          backgroundColor: '#a855f7'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+</script>
+{% endblock %}

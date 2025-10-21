@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<div style="max-width: 500px; margin: auto; padding: 20px">
+  <h3>Masukkan Alasan Penolakan</h3>
+  <form method="POST">
+    <textarea name="alasan" rows="4" class="form-control" required>
+Maaf untuk saat ini magang di Pengadilan Agama Sidoarjo sudah penuh.
+    </textarea>
+    <br />
+    <button type="submit" class="btn btn-danger">Tolak Pendaftaran</button>
+    <a href="{{ url_for('admin') }}" class="btn btn-secondary">Batal</a>
+  </form>
+</div>
+{% endblock %}

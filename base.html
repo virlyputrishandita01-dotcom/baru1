@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title if title else "Portal Magang" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">E-PORTAL MAGANG
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+            
+        <nav class="nav-links">
+            <a href="{{ url_for('home') }}">Beranda</a>
+            <a href="{{ url_for('about') }}">Tentang Kami</a>
+            <a href="{{ url_for('contact') }}">Kontak</a>
+
+            <!-- Ikon user -->
+            <a href="{{ url_for('login') }}" class="user-link">
+                <img src="{{ url_for('static', filename='user.png') }}" alt="User" class="user-icon">
+            </a>
+        </nav>
+    </header>
+
+    <!-- Konten -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

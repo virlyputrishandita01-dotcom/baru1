@@ -1,0 +1,125 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <h2>Formulir Pendaftaran Magang</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <!-- hidden field untuk simpan user yang sedang login -->
+    <input type="hidden" name="user_id" value="{{ session['id'] }}" />
+
+    <div class="form-group">
+      <label for="nama">Nama :</label>
+      <input
+        type="text"
+        id="nama"
+        name="nama"
+        pattern="^[A-Za-z\s'\-]+$"
+        title="Nama hanya boleh berisi huruf, spasi, tanda petik atas (') dan tanda minus (-)"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail :</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="hp">No. Telepon :</label>
+      <input
+        type="text"
+        id="no_telp"
+        name="no_telp"
+        pattern="^[0-9]+$"
+        title="Nomor telepon hanya boleh berisi angka"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="jenis_pendaftaran">Jenis Pendaftaran :</label>
+      <select
+        id="jenis_pendaftaran"
+        name="jenis_pendaftaran"
+        required
+        onchange="toggleJenis()"
+      >
+        <option value="">-- Pilih Jenis Pendaftaran --</option>
+        <option value="mahasiswa">Mahasiswa</option>
+        <option value="siswa">Siswa</option>
+      </select>
+    </div>
+
+    <div class="form-group mahasiswa-field">
+      <label for="universitas">Universitas :</label>
+      <input
+        type="text"
+        id="universitas"
+        name="universitas"
+        placeholder="Masukkan nama universitas"
+      />
+    </div>
+
+    <div class="form-group siswa-field">
+      <label for="sekolah">Sekolah :</label>
+      <input
+        type="text"
+        id="sekolah"
+        name="sekolah"
+        placeholder="Masukkan nama sekolah"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="tgl_mulai">Tanggal Mulai Magang :</label>
+      <input type="date" id="tgl_mulai" name="tgl_mulai" required />
+    </div>
+
+    <div class="form-group">
+      <label for="tgl_selesai">Tanggal Selesai Magang :</label>
+      <input type="date" id="tgl_selesai" name="tgl_selesai" required />
+    </div>
+
+    <div class="form-group">
+      <label for="surat_izin">Surat Izin Magang :</label>
+      <input
+        type="file"
+        id="surat_izin"
+        name="surat_izin"
+        accept=".pdf"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="proposal">Proposal Magang :</label>
+      <input type="file" id="proposal" name="proposal" accept=".pdf" required />
+    </div>
+
+    <button type="submit" class="submit-btn">KIRIM PENDAFTARAN</button>
+  </form>
+</div>
+
+<script>
+  function toggleJenis() {
+    const jenis = document.getElementById("jenis_pendaftaran").value;
+    const uniField = document.querySelector(".mahasiswa-field");
+    const sekolahField = document.querySelector(".siswa-field");
+
+    if (jenis === "mahasiswa") {
+      uniField.style.display = "block";
+      sekolahField.style.display = "none";
+      document.getElementById("universitas").required = true;
+      document.getElementById("sekolah").required = false;
+    } else if (jenis === "siswa") {
+      uniField.style.display = "none";
+      sekolahField.style.display = "block";
+      document.getElementById("sekolah").required = true;
+      document.getElementById("universitas").required = false;
+    } else {
+      uniField.style.display = "none";
+      sekolahField.style.display = "none";
+      document.getElementById("universitas").required = false;
+      document.getElementById("sekolah").required = false;
+    }
+  }
+</script>
+{% endblock %}

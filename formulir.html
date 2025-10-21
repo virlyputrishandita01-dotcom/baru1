@@ -1,0 +1,133 @@
+{% extends "base.html" %} {% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">Formulir Pendaftaran Magang</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <!-- Jenis Pendaftar -->
+    <div class="mb-3">
+      <label for="jenis_pendaftar" class="form-label">Jenis Pendaftar :</label>
+      <select
+        class="form-select"
+        id="jenis_pendaftar"
+        name="jenis_pendaftar"
+        onchange="toggleFields()"
+        required
+      >
+        <option value="mahasiswa">Mahasiswa</option>
+        <option value="siswa">Siswa</option>
+      </select>
+    </div>
+
+    <!-- Nama -->
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama :</label>
+      <input type="text" class="form-control" id="nama" name="nama" required />
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">E-mail :</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        required
+      />
+    </div>
+
+    <!-- No Telp & Tanggal Mulai -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="hp" class="form-label">No. Telp :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="no_telp"
+          name="hp"
+          required
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="tgl_mulai" class="form-label">Tanggal Mulai Magang :</label>
+        <input
+          type="date"
+          class="form-control"
+          id="tgl_mulai"
+          name="tgl_mulai"
+          required
+        />
+      </div>
+    </div>
+
+    <!-- Universitas atau Sekolah -->
+    <div class="row">
+      <!-- Field Universitas -->
+      <div class="col-md-6 mb-3" id="universitas_field" style="display: none">
+        <label for="universitas" class="form-label">Universitas :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="universitas"
+          name="universitas"
+        />
+      </div>
+
+      <!-- Field Sekolah -->
+      <div class="col-md-6 mb-3" id="sekolah_field" style="display: none">
+        <label for="sekolah" class="form-label">Sekolah :</label>
+        <input type="text" class="form-control" id="sekolah" name="sekolah" />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="tgl_akhir" class="form-label">Tanggal Akhir Magang :</label>
+        <input
+          type="date"
+          class="form-control"
+          id="tgl_akhir"
+          name="tgl_akhir"
+          required
+        />
+      </div>
+    </div>
+
+    <!-- Upload Files -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="surat" class="form-label">Surat Izin Magang (PDF) :</label>
+        <input
+          type="file"
+          class="form-control"
+          id="surat"
+          name="surat"
+          accept=".pdf"
+        />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="proposal" class="form-label">Proposal Magang (PDF) :</label>
+        <input
+          type="file"
+          class="form-control"
+          id="proposal"
+          name="proposal"
+          accept=".pdf"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg mt-3">
+      KIRIM PENDAFTARAN
+    </button>
+  </form>
+</div>
+
+<!-- Script untuk menampilkan Universitas/Sekolah sesuai pilihan -->
+<script>
+  function toggleFields() {
+    const jenis = document.getElementById("jenis_pendaftar").value;
+    document.getElementById("universitas_field").style.display =
+      jenis === "mahasiswa" ? "block" : "none";
+    document.getElementById("sekolah_field").style.display =
+      jenis === "siswa" ? "block" : "none";
+  }
+</script>
+{% endblock %}
